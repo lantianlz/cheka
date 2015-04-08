@@ -1,0 +1,26 @@
+<div class="pt-30 pb-30 bgc-272829 co4 f12">
+    <div class="container pb-0 pt-20">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="co9 f20">关于我们</div>
+                <div class="co6 pt-15 line-height-25 f13">{{STATIC_PAGE_CONTENT.footer_about|safe}}</div>
+                <div class="pt-15 co9">
+                    <a class="co9 pr-10" href="/s/about">关于我们</a>|
+                    <a class="co9 pl-10 pr-10" href="/s/agreement">服务条款</a>|
+                    <a class="co9 pl-10 pr-10" href="/s/contact">联系我们</a>
+                </div>
+                <div class="pt-5 co9">Copyright &copy; {% if YEAR == "2014" %}{{YEAR}}{% else %}2014 - {{YEAR}}{% endif %} cekaa.com. All Rights Reserved.</div>
+                <div class="pt-5 co9">蜀ICP备14028531号</div>
+            </div>
+            <!-- <div class="col-md-6">
+                <div class="co7 f20">友情链接</div>
+                <ul class="list-inline pt-15 f15">
+                    <li><a href="http://www.cekaa.com" class="gray-white">车咖</a></li>
+                    {% for link in links %}
+                    <li><a href="{{link.href}}" class="gray-white" target="_blank">{{link.name}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div> -->
+        </div>
+    </div>
+</div>
