@@ -7,7 +7,7 @@ sys.path.extend([os.path.abspath("../"), os.path.abspath("./")])
 os.environ['DJANGO_SETTINGS_MODULE'] = 'www.settings'
 
 BROKER_BACKEND = 'redis'
-BROKER_HOST = '127.0.0.1'
+BROKER_HOST = 'cache0'
 BROKER_PORT = 6379
 BROKER_VHOST = "1"
 
