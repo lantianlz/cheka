@@ -424,6 +424,89 @@ if (!String.format) {
         };
     };
 
+
+    $.Global.Animation = {
+        version: '1.0.0',
+        author: 'stranger',
+        description: '动画组件'
+    };
+
+    /*
+    sprite图片的动画插件
+
+    selector: 选择器
+    options.imgSrc: 图片的路径(将所有桢竖着依次排列)
+    options.height: 每一帧的高度,
+    options.fps: fps,
+    options.loop: 是否循环播放
+
+    原理: 将动画分解成多桢，然后每隔一小段时间去换桢
+
+    用例: 
+    $.Global.Animation.SpriteAnimation(
+        '.sprite-car', {
+            imgSrc: '{{MEDIA_URL}}img/sprite-plane.png', 
+            height: 89
+        }
+    );
+    */
+    $.Global.Animation.SpriteAnimation = function(selector, options){
+        var defaults = {
+                imgSrc: null,
+                height: null,
+                fps: 24,
+                loop: true
+            },
+            opts = $.extend(defaults, options),
+            target = $(selector);
+            
+        if(opts.imgSrc == null || opts.height == null){
+            console.log('没有指定可用的参数，imgSrc 或 height 为空。');
+            return;
+        }
+
+        var img = new Image();
+        img.style.display = "none";
+        img.onload = function(){
+
+            var count = 0,
+                spriteInterval = null,
+                total = Math.floor(img.height / opts.height),
+                total = (img.height % opts.height == 0) ? total : (total + 1);
+
+            // 设置元素属性
+            target
+            .css({
+                'width': img.width,
+                'height': opts.height,
+                'position': 'relative',
+                'overflow': 'hidden'
+            })
+            .append('<img style="top: 0; position: absolute;" src="' + opts.imgSrc + '">');
+
+            // 设置动画
+            spriteInterval = window.setInterval(function(){
+                count += 1;
+
+                if(count >= total){
+                    // 是否循环播放
+                    if(opts.loop){
+                        count = 0;
+                    } else {
+                        window.clearInterval(spriteInterval);
+                    }
+                }
+
+                target.children().css({'top': -opts.height * count});
+
+            }, 1000 / opts.fps);
+        };
+
+        $('body').append(img);
+        img.src = opts.imgSrc;
+
+    }
+
 })(jQuery);
 
 

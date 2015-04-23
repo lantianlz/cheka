@@ -1,84 +1,284 @@
-{% extends "pc/base/base.html" %}
+{% extends "pc/base/base_home.html" %}
 
 {% block title_all %}车咖{% endblock %}
-{% block base_css %}
+{% block home_css %}
 <link rel="stylesheet" type="text/css" href="{{MEDIA_URL}}css/fullpage/jquery.fullPage.css" />
-<link rel="stylesheet" type="text/css" href="{{MEDIA_URL}}css/animate/animate.min.css" />
-<link rel="stylesheet" type="text/css" href="{{MEDIA_URL}}css/site/index.css?v={{MEDIA_VERSION}}" />
+<!-- <link rel="stylesheet" type="text/css" href="{{MEDIA_URL}}css/site/index.css?v={{MEDIA_VERSION}}" /> -->
+<style type="text/css">
+body{
+    transition: all 1.2s ease-in-out;
+    background-color: #F27F5A;
+}
 
+#fullPage-nav li{
+    margin: 15px;
+}
+
+#fullPage-nav li a, .fullPage-slidesNav li a{
+    color: #ffffff;
+}
+
+#fullPage-nav li .active span, .fullPage-slidesNav .active span{
+    background-color: #ffffff;
+}
+
+#fullPage-nav span, .fullPage-slidesNav span{
+    border: 1px solid #ffffff;
+    width: 13px;
+    height: 13px;
+}
+
+.sprite-car{
+    -webkit-transform: translateX(0%);
+       -moz-transform: translateX(0%);
+        -ms-transform: translateX(0%);
+            transform: translateX(0%);
+    -webkit-animation: car-move 20s linear infinite;
+       -moz-animation: car-move 20s linear infinite;
+        -ms-animation: car-move 20s linear infinite;
+            animation: car-move 20s linear infinite;
+}
+
+@-webkit-keyframes car-move{
+    0%{
+        -webkit-transform: translateX(-100%);
+        opacity: 0;
+    }
+    10%{
+        -webkit-transform: translateX(-50%);
+        opacity: 1;
+    }
+    90%{
+        -webkit-transform: translateX(400%);
+        opacity: 1;
+    }
+    100%{
+        -webkit-transform: translateX(450%);
+        opacity: 0;
+    }
+}
+@keyframes car-move{
+    0%{
+        -webkit-transform: translateX(-100%);
+           -moz-transform: translateX(-100%);
+            -ms-transform: translateX(-100%);
+                transform: translateX(-100%);
+        opacity: 0;
+    }
+    10%{
+        -webkit-transform: translateX(-50%);
+           -moz-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+                transform: translateX(-50%);
+        opacity: 1;
+    }
+    90%{
+        -webkit-transform: translateX(400%);
+           -moz-transform: translateX(400%);
+            -ms-transform: translateX(400%);
+                transform: translateX(400%);
+        opacity: 1;
+    }
+    100%{
+        -webkit-transform: translateX(450%);
+           -moz-transform: translateX(450%);
+            -ms-transform: translateX(450%);
+                transform: translateX(450%);
+        opacity: 0;
+    }
+}
+
+.fade-text{
+    overflow: hidden;
+    vertical-align: top;
+    height: 40px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.blue-circle{
+    background-color: #406EBB;
+    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+}
+
+.blue-line1{
+    background-color: #406EBB; 
+    height: 12px; 
+    width: 100px;
+    top: 59%;
+    left: 52%;
+    -webkit-transform: rotateZ(15deg);
+       -moz-transform: rotateZ(15deg);
+        -ms-transform: rotateZ(15deg);
+            transform: rotateZ(15deg);
+}
+
+.blue-line2{
+    background-color: #406EBB; 
+    height: 12px; 
+    width: 100px;
+    top: 40%;
+    left: 48%;
+    -webkit-transform: rotateZ(291deg);
+       -moz-transform: rotateZ(291deg);
+        -ms-transform: rotateZ(291deg);
+            transform: rotateZ(291deg);
+}
+
+.blue-line3{
+    background-color: #406EBB; 
+    height: 12px; 
+    width: 100px;
+    top: 40%;
+    left: 39%;
+    -webkit-transform: rotateZ(219deg);
+       -moz-transform: rotateZ(219deg);
+        -ms-transform: rotateZ(219deg);
+            transform: rotateZ(219deg);
+}
+
+.blue-line4{
+    background-color: #406EBB; 
+    height: 12px; 
+    width: 100px;
+    top: 70%;
+    left: 39%;
+    -webkit-transform: rotateZ(141deg);
+       -moz-transform: rotateZ(141deg);
+        -ms-transform: rotateZ(141deg);
+            transform: rotateZ(141deg);
+}
+
+.blue-line5{
+    background-color: #406EBB; 
+    height: 12px; 
+    width: 100px;
+    top: 70%;
+    left: 48.5%;
+    -webkit-transform: rotateZ(75deg);
+       -moz-transform: rotateZ(75deg);
+        -ms-transform: rotateZ(75deg);
+            transform: rotateZ(75deg);
+}
+
+</style>
 {% endblock %}
 
-{% block base_js %}
+{% block home_js %}
 <script type="text/javascript" src="{{MEDIA_URL}}js/jquery/jquery.fullPage.min.js"></script>
 <script type="text/javascript" src="{{MEDIA_URL}}js/jquery/jquery.easing.1.3.min.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function(){
 
-    var pageTransform = function(pageIndex){
-        
-        switch(pageIndex){
-
+    var changeBgColor = function(index){
+        switch(index){
             case 1:
-                
-                $('.slogan').removeClass('tada');
-                $('.phone').css({'right': 20, 'opacity': 0.01});
-
-                window.setTimeout(function(){
-                    $('.phone').animate({'right': 90, 'opacity': 1}, 900, 'easeOutCubic');
-                }, 200);
-
-                window.setTimeout(function(){
-                    $('.slogan').addClass('tada');
-                }, 600);
-
+                // $('body').css({'background': '-webkit-linear-gradient(left, #F27F5A, #ED5063'});
+                $('body').css({'background': '#F0735D'});
                 break;
 
             case 2:
-                
+                // $('body').css({'background': '-webkit-linear-gradient(left, #ED61D6, #BF51F5'});
+                $('body').css({'background': '#50A0AE'});
                 break;
 
             case 3:
-                $('.step-1').addClass('none').removeClass('fadeInLeft');
-                $('.step-2').addClass('none').removeClass('fadeInRight');
-                $('.step-3').addClass('none').removeClass('fadeInDown');
+                // $('body').css({'background': '-webkit-linear-gradient(left, #C0D253, #8DC262'});
+                $('body').css({'background': '#C252F3'});
+                break;
 
-                window.setTimeout(function(){
-                    $('.step-1').removeClass('none').addClass('fadeInLeft');
-                }, 100);
-                window.setTimeout(function(){
-                    $('.step-2').removeClass('none').addClass('fadeInRight');
-                }, 900);
-                window.setTimeout(function(){
-                    $('.step-3').removeClass('none').addClass('fadeInDown');
-                }, 1700);
+            case 4:
+                // $('body').css({'background': '-webkit-linear-gradient(left, #28ABD8, #4A70CA'});
+                $('body').css({'background': '#90C461'});
+                break;
+
+            case 5:
+                // $('body').css({'background': '-webkit-linear-gradient(left, #28ABD8, #4A70CA'});
+                $('body').css({'background': '#4675CC'});
                 break;
         }
-        
     };
 
     $('#fullpage').fullpage({
         scrollingSpeed: 700,
         easing: 'easeOutExpo',
         navigation: true,
-        anchors: ['homepage', 'service', 'use', 'q&a'],
+        anchors: ['homepage', 'service', 'use', 'q&a', 'about'],
         onLeave: function(index, nextIndex, direction){
             $('.navbar-right>li').removeClass('active');
             $('.navbar-right>li').eq(nextIndex-1).addClass('active');
 
-            pageTransform(nextIndex);
+            changeBgColor(nextIndex);
         }
     });
 
-    $('.weixin')
-    .bind('mouseenter', function(){
-        $('.qrcode').stop(true, true).fadeIn();
-    })
-    .bind('mouseleave', function(){
-        $('.qrcode').stop(true, true).fadeOut();
-    });
+    changeBgColor(1);
 
-    pageTransform(1);
+
+
+    // 移动的车
+    // $.Global.Animation.SpriteAnimation('.sprite-car', {imgSrc: '{{MEDIA_URL}}img/sprite-plane.png', height: 89});
+
+
+
+    // 文字效果切换
+    // var WORDS = [
+    //         ['inventors', 'use of the data', 'rebuilding the relationship', 'man to the vehicle'],
+    //         ['engineers', 'use tech power', 'improve traffic flow', 'thousands of users'],
+    //         ['supporters of the Open', 'share data', 'allow as many', 'create their own services'],
+    //         ['pleased to meet you', 'you are, contact us', 'we can chat', 'rain and shine'],
+    //         ['human beings', 'use transport', 'get to work', 'early'],
+    //         ['geeks', 'devour books of sci -fi', 'imagine the future', 'mobility']
+    //     ],
+    //     getWordWidth = function(word){
+    //         var temp = $('<span style="font-weight: bold; visibility: hidden;">'+word+'</span>').appendTo('.fade-move'),
+    //             width = temp.width();
+
+    //         temp.remove();
+    //         return width;
+    //     },
+    //     fadeText = function(words){
+    //         $.each(words, function(i){
+
+    //             $('.fade-text').eq(i)
+    //             .animate({
+    //                 'opacity': 0,
+    //                 'width': getWordWidth(words[i])
+    //             }, 500, 'easeOutExpo', function(){
+                    
+    //                 $(this).text(words[i]);
+    //                 $(this).animate({
+    //                     'opacity': 1
+    //                 }, 500, 'easeInExpo');
+
+    //             });
+
+    //         });
+    //     },
+    //     loopFadeText = function(){
+    //         $.each(WORDS, function(i){
+
+    //             window.setTimeout(function(){
+
+    //                 fadeText(WORDS[i]);
+
+    //             }, i*4000);
+                
+    //         });
+    //     };
+
+    // window.setInterval(function(){
+    //     loopFadeText();
+    // }, WORDS.length * 4000)
+    
+    // loopFadeText();
+
+
+
+
 });
 
 </script>
@@ -87,161 +287,183 @@ $(document).ready(function(){
 {% block base_container %}
 <div id="fullpage">
 
-    <div class="section bgc-f23a1a" data-anchor="homepage" >
-        <div class="container pr" style="padding-top: 6%">
-            <div class="col-md-6 pl-75">
-                <div class="co5 f45">专属于年轻人的</div>
-                <div class="co5 f80">洗车平台</div>
-                <div class="co5 f15">汇聚你身边的洗车行，为你提供最优惠、最便捷、最时尚的洗车服务</div>
-                <div class="" style="padding-top: 10%">
-                    <img src="{{MEDIA_URL}}img/homepage/qrcode.png" />
-                </div>
-                <div  style="padding-top: 3%">
-                    <img class="slogan animated tada" src="{{MEDIA_URL}}img/homepage/slogan.png" />
-                </div>
+    <div class="section pr">
+        <!-- <div class="sprite-car"></div> -->
+        <div class="container pr-50 pl-60 pt-30 co-ffffff text-center">
+            <div style="padding-right: 350px;">
+                <img src="{{MEDIA_URL}}img/home/cloud.png">
             </div>
-            <!-- <div class="col-md-6 text-right pr-75 pr"> -->
-            <img class="pa car" style=" right: 300px; bottom: 0;" src="{{MEDIA_URL}}img/homepage/car.png">
-            <img class="pa w250 phone" style="right: 20px; bottom: -27px; opacity: 0.01;" src="{{MEDIA_URL}}img/homepage/phone.png">
-            
-            <!-- </div> -->
-        </div>
-    </div>
-
-    <div class="section bgc-ffffff" data-anchor="service">
-        <div class="container" style="padding-top: 5%">
-            <div class="col-md-12 pl-30 pr-30 pr">
-                <img class="w" src="{{MEDIA_URL}}img/homepage/cars.png">
-
-                <img class="pa w140 float1" style="left: 20%; top: 120px;" src="{{MEDIA_URL}}img/homepage/drop.png">
-                <span class="pa co5 f40 float2" style="left: 23%; top: 160px;">便捷</span>
-
-                <img class="pa w140 float3" style="left: 48%; top: 60px;" src="{{MEDIA_URL}}img/homepage/drop.png">
-                <span class="pa co5 f40 float4" style="left: 51%; top: 100px;">省钱</span>
-
-                <img class="pa w140 float5" style="left: 75%; top: 110px;" src="{{MEDIA_URL}}img/homepage/drop.png">
-                <span class="pa co5 f40 float6" style="left: 78%; top: 150px;">时尚</span>
+            <div class="pt-10">
+                <span class="f25">全球最大汽车服务平台</span>
             </div>
-            <div class="col-md-12 pt-20 co1">
-                <div class="col-md-4 text-right pr-0 pl-0">
-                    <div class="pr-35">汇聚你身边的洗车网点</div>
-                    <div>无论出行还是在家，让你洗车更便捷</div>
-                </div>
-                <div class="col-md-4 text-center pl-30">
-                    <div>最心动的折扣和优惠活动</div>
-                    <div>随时随地，让你下车更省钱</div>
-                </div>
-                <div class="col-md-4 pl-5">
-                    <div class="pl-55">支持多种在线付款</div>
-                    <div>告别传统付款方式，让你支付更时尚</div>
-                </div>
+            <div>
+                <span class="f60 fb">车咖来了</span>
+            </div>
+            <div class="pt-3">
+                <span class="f14">集汽车快修美容服务、互联网线上社交、汽车服务体验店于一身， </span>
+            </div>
+            <div class="pt-3">
+                <span class="f14">将爱车的小咖大咖们聚集起来，感受互联网时代汽车服务带来的便利。</span>
+            </div>
+            <div class="pt-3">
+                <span class="f14">这一切，只为生活更美好！</span>
+            </div>
+
+            <div class="pr" style="min-height: 200px;">
+                <img class="pa" style="bottom: 0; left: 12%; width: 800px;" src="{{MEDIA_URL}}img/home/land.png">
+                <img class="pa" style="bottom: 12%; left: 23%; width: 130px;" src="{{MEDIA_URL}}img/home/land1.png">
+                <img class="pa" style="bottom: 12%; left: 41%; width: 180px;" src="{{MEDIA_URL}}img/home/land2.png">
+                <img class="pa" style="bottom: 12%; left: 63%; width: 140px;" src="{{MEDIA_URL}}img/home/land2.png">
+                <img class="pa" style="bottom: 15%; left: 25%; width: 90px;" src="{{MEDIA_URL}}img/home/car1.png">
+                <img class="pa" style="bottom: 15%; left: 44%; width: 125px;" src="{{MEDIA_URL}}img/home/car2.png">
+                <img class="pa" style="bottom: 15%; left: 65%; width: 105px;" src="{{MEDIA_URL}}img/home/car3.png">
             </div>
         </div>
     </div>
 
-    <div class="section bgc-f8f8f8" data-anchor="use">
-        <div class="container" style="padding-top: 4%">
-            <div class="col-md-12 text-center co1 f30">那么，如何使用呢？</div>
-            <div class="col-md-12" style="padding-top: 4%">
-                <div class="col-md-4 pr text-right pr-30 step-1 animated none">
-                    <img src="{{MEDIA_URL}}img/homepage/use-step-1.png">
-                    <img class="pa" style="left: 25px; bottom: 50px;" src="{{MEDIA_URL}}img/homepage/01.png">
-                    <span class="pa co15 f37" style="left: 25px; bottom: 0px;">选择</span>
-                </div>
-                <div class="col-md-4 text-right pt-40 pr-35 step-2 animated none">
-                    <img src="{{MEDIA_URL}}img/homepage/use-step-2.png">
-                    <img class="pa" style="left: 45px; bottom: 50px;" src="{{MEDIA_URL}}img/homepage/02.png">
-                    <span class="pa co15 f37" style="left: 50px; bottom: 0px;">购买</span>
-                </div>
-                <div class="col-md-4 text-right pt-40 pr-0 step-3 animated none">
-                    <img src="{{MEDIA_URL}}img/homepage/use-step-3.png">
-                    <img class="pa" style="left: 60px; bottom: 50px;" src="{{MEDIA_URL}}img/homepage/03.png">
-                    <span class="pa co15 f37" style="left: 65px; bottom: 0px;">消费</span>
-                </div>
+    <div class="section">
+        <!-- <div class="container text-center f25 co-ffffff fade-move">
+            <span class="">We are</span>
+            <span class="fade-text">pleased to meet you</span>
+            <span class="">who</span>
+            <span class="fade-text">you are, contact us</span>
+            <br>
+            <span class="">to</span>
+            <span class="fade-text">we can chat</span>
+            <span class="">for</span>
+            <span class="fade-text">rain and shine</span>
+        </div> -->
+
+        <div class="container pr-50 pl-60 pt-50 co-ffffff text-center">
+            <div class="pb-20">
+                <span class="f25">互联网＋实体店全方位服务，享受汽车大咖体验</span>
+            </div>
+            <div>
+                <span class="f14">在线上，将爱车用户聚集在一起，聊车聊生活，提供全面的互联网汽车服务</span>
+            </div>
+            <div>
+                <span class="f14">在线下，车咖汽车快修连锁，让你体验不一样的实体店服务</span>
+            </div>
+
+            <div class="pr" style="min-height: 320px;">
+                <img class="pa" style="bottom: 15%; left: 24%; width: 550px;" src="{{MEDIA_URL}}img/home/building.png">
+                <img class="pa" style="bottom: 0; left: 30%; width: 130px;" src="{{MEDIA_URL}}img/home/phone.png">
+                <img class="pa" style="bottom: 13%; left: 44%; width: 35px;" src="{{MEDIA_URL}}img/home/house1.png">
+                <img class="pa" style="bottom: 5%; left: 55%; width: 65px;" src="{{MEDIA_URL}}img/home/house1.png">
+                <img class="pa" style="bottom: 14%; left: 71%; width: 25px;" src="{{MEDIA_URL}}img/home/house2.png">
+                <img class="pa" style="bottom: 5%; left: 63%; width: 55px;" src="{{MEDIA_URL}}img/home/car4.png">
+                <img class="pa" style="bottom: 23%; left: 44%; width: 35px;" src="{{MEDIA_URL}}img/home/cloud1.png">
+                <img class="pa" style="bottom: 24%; left: 55.5%; width: 55px;" src="{{MEDIA_URL}}img/home/cloud1.png">
+                <img class="pa" style="bottom: 22%; left: 71%; width: 25px;" src="{{MEDIA_URL}}img/home/cloud1.png">
             </div>
         </div>
     </div>
 
-    <div class="section bgc-ffffff pr" data-anchor="q&a">
-        <div class="container" style="padding-top: 5%; padding-bottom: 10%;">
-            <div class="col-md-12 f30 co1 text-center">常见问题</div>
-            <div class="col-md-12 co1 f13 pb-30">
-                <div class="col-md-6 pr-50">
-                    <p class="pt-2">
-                        <div>Q：如何注册成为车咖会员？</div>
-                        <div>A：车咖目前通过微信公众号来提供服务，关注车咖微信服务号后，通过公众号菜单即可访问，无须额外注册。</div>
-                    </p>
-                    <p class="pt-2">
-                        <div>Q：如何使用车咖服务？</div>
-                        <div>A：点击微信服务号菜单”立即洗车”，选择你附近或喜欢的洗车行，按照相应的洗车价格成功支付后获得洗车码。</div>
-                    </p>
-                    <p class="pt-2">
-                        <div>Q：如何查询附近车咖合作网点？</div>
-                        <div>A：点击菜单”立即洗车”，即可查看您附近的车咖合作网点。</div>
-                    </p>
-                    <p class="pt-2">
-                        <div>Q：如何使用车咖码到店消费？</div>
-                        <div>A：点击菜单”我的洗车码 -> 服务中的洗车码”，将获取到的洗车码告知门店服务人员即可。</div>
-                    </p>
-                    <p class="pt-2">
-                        <div>Q：如何充值？</div>
-                        <div>A：点击菜单”更多 -> 充值”，选择所需的充值金额后支付即可。</div>
-                    </p>
+    <div class="section">
+        <div class="container pr-50 pl-60 pt-50 co-ffffff">
+            <div class="row">
+                <div class="col-md-6 pr" style="min-height: 250px;">
+                    <img class="pa" style="bottom: 20%; right: 10%; width: 230px;" src="{{MEDIA_URL}}img/home/map.png">
+                    <img class="pa" style="bottom: 30%; left: 55%; width: 150px;" src="{{MEDIA_URL}}img/home/location.png">
+                    <img class="pa" style="bottom: 80%; left: 50%; width: 80px;" src="{{MEDIA_URL}}img/home/cloud2.png">
+                    <img class="pa" style="bottom: 30%; left: 71%; width: 100px;" src="{{MEDIA_URL}}img/home/car5.png">
                 </div>
-                <div class="col-md-6 pl-50 pr-0">
-                    <p class="pt-2">
-                        <div>Q：如何查看我的洗车码？</div>
-                        <div>A：点击菜单”我的洗车码”，即可查看到您服务中以及结束的洗车码。</div>
-                    </p>
-                    <p class="pt-2">
-                        <div>Q：如何查看我的消费记录？</div>
-                        <div>A：点击菜单”账户 -> 消费记录”，即可查看您的消费记录。</div>
-                    </p>
-                    <p class="pt-2">
-                        <div>Q：什么是优惠券？</div>
-                        <div>A：车咖会员专属优惠券，可以用于抵用洗车费用</div>
-                    </p>
-                    <p class="pt-2">
-                        <div>Q：如何使用优惠券？</div>
-                        <div>A：购买洗车码付款时，使用优惠券可以抵用相应费用。</div>
-                    </p>
-                    <p class="pt-2">
-                        <div>Q：如何获得优惠券？</div>
-                        <div>A：车咖会不定期举办活动，参加活动获得车咖奖励的优惠券，敬请留意。</div>
-                    </p>
-
-                    <p class="pt-2">
-                        <div>Q：哪些城市可以使用车咖服务？有多少家合作商户？</div>
-                        <div>A：车咖即将开通成都、重庆、武汉3个城市，与300余家的洗车网点达成合作。</div>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="bgc-f23a1a h180 pa w" style="left: 0;bottom: 0;">
-            <div class="container pt-55 pb-30">
-                <div class="col-md-4 pr co5 pt-15">
-                    <img class="w50 pa" style="left: 40px; top: 5px;" src="{{MEDIA_URL}}img/logo_white_1.png">
-                    <div class="f25 pl-75">车咖</div>
-                    <div class="f12 pl-25 pt-10">Copyright &copy; {% if YEAR == "2014" %}{{YEAR}}{% else %}2014 - {{YEAR}}{% endif %} cekaa.com. All Rights Reserved.</div>
-                </div>
-                <div class="col-md-4 pt-0 pl-130 f14">
-                    <div class="co5 pt-10">
-                        <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=390973848&amp;site=qq&amp;menu=yes" target="_blank" rel="nofollow" class="white-white">
-                            <span class="fa fa-qq pr-3"></span>390973848
-                        </a>
+                <div class="col-md-6 pt-30">
+                    <div>
+                        <span class="f25">全国服务联网</span>
                     </div>
-                    <div class="co5 pt-10">lz@cekaa.com</div>
-                    <div class="co5 pt-10">成都市高新区天府软件园G区</div>
-                </div>
-                <div class="col-md-4 pr pt-50 pl-100">
-                    <a class="weixin" href="#"><img src="{{MEDIA_URL}}img/homepage/weixin.png"></a>
-                    <a class="weibo" href="http://www.weibo.com/cheka" target="_blank"><img class="pl-25" src="{{MEDIA_URL}}img/homepage/weibo.png"></a>
-                    <img class="pa none qrcode" style="top: -52px; left: 80px; width: 90px;" src="{{MEDIA_URL}}img/homepage/qrcode_arrow.png">
+                    <div class="pb-20">
+                        <span class="f25">美容快修超简单</span>
+                    </div>
+                    <div>
+                        <span class="f14">车咖快修美容连锁，统一化管理和标准化服务的实体旗舰店</span>
+                    </div>
+                    <div>
+                        <span class="f14">24小时守护，终身会员全国享受</span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="section">
+        <div class="container pr-50 pl-60 pt-50 co-ffffff">
+            <div class="row">
+                <div class="col-md-6 text-right">
+                    <div>
+                        <span class="f25">众筹投资模式</span>
+                    </div>
+                    <div class="pb-20">
+                        <span class="f25">降低风险，保障利益</span>
+                    </div>
+                    <div class="pt-10">
+                        <span class="f14">前所未有的投资形式</span>
+                    </div>
+                    <div>
+                        <span class="f14">车咖采用众筹模式，分摊风险的同时最大化提升收益</span>
+                    </div>
+                    <div class="pt-15">
+                        <span class="f14">一次投资，终身收益</span>
+                    </div>
+                    <div>
+                        <span class="f14">您将成为车咖的终身会员，享受免费汽车服务</span>
+                    </div>
+                </div>
+                <div class="col-md-6 pr" style="min-height: 250px;">
+                    <img class="pa" style="top: -6%; left: 10%; width: 250px;" src="{{MEDIA_URL}}img/home/cloud3.png">
+                    <img class="pa" style="top: 51%; left: 30%; width: 150px;" src="{{MEDIA_URL}}img/home/car6.png">
+                    <img class="pa" style="top: 35%; left: 40%; width: 40px;" src="{{MEDIA_URL}}img/home/hat.png">
+                    <img class="pa" style="top: 6%; left: 13%; width: 180px;" src="{{MEDIA_URL}}img/home/circle.png">
+                    <img class="pa" style="top: 27%; left: 10%; width: 140px;" src="{{MEDIA_URL}}img/home/money.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="container pr-50 pl-60 pt-50 co-ffffff text-center">
+            <div class="pb-20">
+                <span class="f25">基于互联网的汽车服务O2O，颠覆传统业态</span>
+            </div>
+            <div>
+                <span class="f14">全新商业模式，将移动互联网与传统汽车服务相结合</span>
+            </div>
+            <div>
+                <span class="f14">让用户紧密联系起来，提供更具价值的汽车后服务</span>
+            </div>
+
+            <div class="pr" style="min-height: 350px;">
+                
+                <div class="pa blue-line1"></div>
+                <div class="pa blue-line2"></div>
+                <div class="pa blue-line3"></div>
+                <div class="pa blue-line4"></div>
+                <div class="pa blue-line5"></div>
+
+                <div class="pa" style="top: 40%; left: 46%; background-color: #406EBB; width: 115px; height: 115px; border-radius: 50%;">
+                    <img class="pa" style="bottom: 32%; right: 16%; width: 70px;" src="{{MEDIA_URL}}img/home/logo.png">
+                </div>
+                <div class="pa blue-circle" style="top: 55%; left: 59%;">
+                    <img class="pa" style="bottom: 28%; right: 18%; width: 40px;" src="{{MEDIA_URL}}img/home/pic1.png">
+                </div>
+                <div class="pa blue-circle" style="top: 15%; left: 52%;">
+                    <img class="pa" style="bottom: 20%; right: 18%; width: 40px;" src="{{MEDIA_URL}}img/home/pic2.png">
+                </div>
+                <div class="pa blue-circle" style="top: 17%; left: 35%;">
+                    <img class="pa" style="bottom: 20%; right: 18%; width: 40px;" src="{{MEDIA_URL}}img/home/pic3.png">
+                </div>
+                <div class="pa blue-circle" style="top: 72%; left: 36%;">
+                    <img class="pa" style="bottom: 20%; right: 18%; width: 40px;" src="{{MEDIA_URL}}img/home/pic4.png">
+                </div>
+                <div class="pa blue-circle" style="top: 82%; left: 52%;">
+                    <img class="pa" style="bottom: 25%; right: 18%; width: 40px;" src="{{MEDIA_URL}}img/home/pic5.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
+<div style="min-height: 300px;">11111</div>
 {% endblock %}
 
 {% block footer %}{% endblock %}
