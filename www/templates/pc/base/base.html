@@ -32,43 +32,7 @@
     <body>
 
         <div class="scroll-top"></div>
-        {% block header %}
-        <header class="navbar navbar-fixed-top bgc-ffffff bdc-e6e6e6 border-bottom" role="banner">
-            <div class="container">
-                <div class="navbar-header pr">
-                    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a href="../" class="navbar-brand co1 pl-70 f22 pt-20 pb-20">车咖</a>
-                    <img class="w40 pa" style="left: 5px; top: 10px;" src="{{MEDIA_URL}}img/logo.png">
-                </div>
-                <nav class="collapse navbar-collapse" role="navigation">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="active">
-                            <a class="co1 f17" href="#homepage">首页</a>
-                        </li>
-                        <li>
-                            <a class="co1 f17" href="#service">服务</a>
-                        </li>
-                        <li>
-                            <a class="co1 f17" href="#use">使用</a>
-                        </li>
-                        <li>
-                            <a class="co1 f17" href="#q&a">常见问题</a>
-                        </li>
-                        <li>
-                            <a class="co1 f14" href="/shop/" target="_blank">
-                                <span class="pt-5 pb-5 pr-5 pl-5 bgc-d31623 bdr-6 co5">商户登录</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-        {% endblock header %}
+        {% block header %}{% endblock header %}
         
         {% block base_container %}
         <div class="container pt-0 pb-20 pr" style="min-height:500px;">
