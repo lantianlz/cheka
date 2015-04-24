@@ -6,8 +6,8 @@
 <!-- <link rel="stylesheet" type="text/css" href="{{MEDIA_URL}}css/site/index.css?v={{MEDIA_VERSION}}" /> -->
 <style type="text/css">
 body{
-    transition: all 1.2s ease-in-out;
-    background-color: #F27F5A;
+    transition: background-color 1s ease-in-out;
+    background-color: #F38349;
 }
 
 #fullPage-nav li{
@@ -88,6 +88,230 @@ body{
     }
 }
 
+.float-cloud{
+    -webkit-transform: translateX(0%);
+       -moz-transform: translateX(0%);
+        -ms-transform: translateX(0%);
+            transform: translateX(0%);
+    -webkit-animation: float-cloud 60s linear infinite;
+       -moz-animation: float-cloud 60s linear infinite;
+        -ms-animation: float-cloud 60s linear infinite;
+            animation: float-cloud 60s linear infinite;
+}
+
+@-webkit-keyframes float-cloud{
+    0%{
+        -webkit-transform: translateX(0%);
+    }
+    50%{
+        -webkit-transform: translateX(100%);
+    }
+    100%{
+        -webkit-transform: translateX(0%);
+    }
+}
+@keyframes float-cloud{
+    0%{
+        -webkit-transform: translateX(0%);
+           -moz-transform: translateX(0%);
+            -ms-transform: translateX(0%);
+                transform: translateX(0%);
+    }
+    50%{
+        -webkit-transform: translateX(100%);
+           -moz-transform: translateX(100%);
+            -ms-transform: translateX(100%);
+                transform: translateX(100%);
+    }
+    100%{
+        -webkit-transform: translateX(0%);
+           -moz-transform: translateX(0%);
+            -ms-transform: translateX(0%);
+                transform: translateX(0%);
+    }
+}
+
+.float-cloud2{
+    -webkit-transform: translateX(0%);
+       -moz-transform: translateX(0%);
+        -ms-transform: translateX(0%);
+            transform: translateX(0%);
+    -webkit-animation: float-cloud2 20s linear infinite;
+       -moz-animation: float-cloud2 20s linear infinite;
+        -ms-animation: float-cloud2 20s linear infinite;
+            animation: float-cloud2 20s linear infinite;
+}
+
+@-webkit-keyframes float-cloud2{
+    0%{
+        -webkit-transform: translateX(-10%);
+    }
+    50%{
+        -webkit-transform: translateX(10%);
+    }
+    100%{
+        -webkit-transform: translateX(-10%);
+    }
+}
+@keyframes float-cloud2{
+    0%{
+        -webkit-transform: translateX(-10%);
+           -moz-transform: translateX(-10%);
+            -ms-transform: translateX(-10%);
+                transform: translateX(-10%);
+    }
+    50%{
+        -webkit-transform: translateX(10%);
+           -moz-transform: translateX(10%);
+            -ms-transform: translateX(10%);
+                transform: translateX(10%);
+    }
+    100%{
+        -webkit-transform: translateX(-10%);
+           -moz-transform: translateX(-10%);
+            -ms-transform: translateX(-10%);
+                transform: translateX(-10%);
+    }
+}
+
+.flash-cloud-line1{
+    -webkit-animation: flash-cloud-line1 1.5s linear infinite;
+       -moz-animation: flash-cloud-line1 1.5s linear infinite;
+        -ms-animation: flash-cloud-line1 1.5s linear infinite;
+            animation: flash-cloud-line1 1.5s linear infinite;
+}
+
+@-webkit-keyframes flash-cloud-line1{
+    0%{
+        opacity: 0;
+    }
+    33%{
+        opacity: 1;
+    }
+    66%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes float-cloud{
+    0%{
+        opacity: 0;
+    }
+    33%{
+        opacity: 1;
+    }
+    66%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+.flash-cloud-line2{
+    -webkit-animation: flash-cloud-line2 1.5s linear infinite;
+       -moz-animation: flash-cloud-line2 1.5s linear infinite;
+        -ms-animation: flash-cloud-line2 1.5s linear infinite;
+            animation: flash-cloud-line2 1.5s linear infinite;
+}
+
+@-webkit-keyframes flash-cloud-line2{
+    0%{
+        opacity: 0;
+    }
+    33%{
+        opacity: 0;
+    }
+    66%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes float-cloud{
+    0%{
+        opacity: 0;
+    }
+    33%{
+        opacity: 0;
+    }
+    66%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+.fadeInRightSmall {
+  -webkit-animation-name: fadeInRightSmall;
+  animation-name: fadeInRightSmall;
+}
+
+@-webkit-keyframes fadeInRightSmall {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(30%, 0, 0);
+    transform: translate3d(30%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInRightSmall {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(30%, 0, 0);
+    transform: translate3d(30%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInLeftSmall {
+  -webkit-animation-name: fadeInLeftSmall;
+  animation-name: fadeInLeftSmall;
+}
+
+@-webkit-keyframes fadeInLeftSmall {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-30%, 0, 0);
+    transform: translate3d(-30%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInLeftSmall {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-30%, 0, 0);
+    transform: translate3d(-30%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
 .fade-text{
     overflow: hidden;
     vertical-align: top;
@@ -163,6 +387,15 @@ body{
             transform: rotateZ(75deg);
 }
 
+.contact-hover{
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.contact-hover:hover{
+    color: #4675CC;
+    background-color: #ffffff;
+}
+
 </style>
 {% endblock %}
 
@@ -173,34 +406,166 @@ body{
 <script type="text/javascript">
 $(document).ready(function(){
 
-    var changeBgColor = function(index){
-        switch(index){
-            case 1:
-                // $('body').css({'background': '-webkit-linear-gradient(left, #F27F5A, #ED5063'});
-                $('body').css({'background': '#F0735D'});
-                break;
+    var resetAllStyle = function(){
 
-            case 2:
-                // $('body').css({'background': '-webkit-linear-gradient(left, #ED61D6, #BF51F5'});
-                $('body').css({'background': '#50A0AE'});
-                break;
+            $('.text2').css({'opacity': 0});
+            $('.text3').css({'opacity': 0});
+            $('.text4').css({'opacity': 0});
+            $('.text5').css({'opacity': 0});
+            $('.text6').css({'opacity': 0});
+            $('.text7').css({'opacity': 0});
+            $('.text8').css({'opacity': 0});
+            $('.text9').css({'opacity': 0});
+            $('.text10').css({'opacity': 0});
+            $('.text11').css({'opacity': 0});
+            $('.text12').css({'opacity': 0});
+            $('.car4').css({'opacity': 0});
+            $('.phone').css({'opacity': 0});
 
-            case 3:
-                // $('body').css({'background': '-webkit-linear-gradient(left, #C0D253, #8DC262'});
-                $('body').css({'background': '#C252F3'});
-                break;
+            $('.blue-circle1')
+            .animate({'left': '56%', 'top': '54%'}, 500);
 
-            case 4:
-                // $('body').css({'background': '-webkit-linear-gradient(left, #28ABD8, #4A70CA'});
-                $('body').css({'background': '#90C461'});
-                break;
+            $('.blue-circle2')
+            .animate({'left': '50%', 'top': '23%'}, 500);
 
-            case 5:
-                // $('body').css({'background': '-webkit-linear-gradient(left, #28ABD8, #4A70CA'});
-                $('body').css({'background': '#4675CC'});
-                break;
-        }
-    };
+            $('.blue-circle3')
+            .animate({'left': '39%', 'top': '29%'}, 500);
+
+            $('.blue-circle4')
+            .animate({'left': '39%', 'top': '65%'}, 500);
+
+            $('.blue-circle5')
+            .animate({'left': '50%', 'top': '72%'}, 500);
+
+        },
+        pageTransform = function(index){
+
+            resetAllStyle();
+
+            switch(index){
+                case 1:
+                    $('body').css({'background': '#F38349'});
+
+                    $('.text2').removeClass('bounceIn');
+                    window.setTimeout(function(){
+                        $('.text2').addClass('bounceIn');
+                    }, 500);
+
+                    $('.text3').css({'opacity': 0});
+                    window.setTimeout(function(){
+                        $('.text3').animate({'opacity': 1}, 1000);
+                    }, 1500);
+                    break;
+
+                case 2:
+                    $('body').css({'background': '#50A0AE'});
+
+                    $('.text4').removeClass('fadeInUp');
+                    window.setTimeout(function(){
+                        $('.text4').addClass('fadeInUp');
+                    }, 500);
+
+                    $('.text5').removeClass('fadeInUp');
+                    window.setTimeout(function(){
+                        $('.text5').addClass('fadeInUp');
+                    }, 1000);
+
+                    $('.car4').removeClass('fadeInRight');
+                    window.setTimeout(function(){
+                        $('.car4').addClass('fadeInRight');
+                    }, 1500);
+
+                    $('.phone').removeClass('fadeInLeftSmall');
+                    window.setTimeout(function(){
+                        $('.phone').addClass('fadeInLeftSmall');
+                    }, 1500);
+                    break;
+
+                case 3:
+                    $('body').css({'background': '#C252F3'});
+
+                    $('.text6').removeClass('fadeInRightSmall');
+                    window.setTimeout(function(){
+                        $('.text6').addClass('fadeInRightSmall');
+                    }, 500);
+
+                    $('.text7').removeClass('fadeInRightSmall');
+                    window.setTimeout(function(){
+                        $('.text7').addClass('fadeInRightSmall');
+                    }, 700);
+
+                    $('.car5').css({'left': '40%', 'opacity': 0});
+                    window.setTimeout(function(){
+                        $('.car5').animate({'left': '70%', 'opacity': 1}, 3000, 'easeOutQuart');
+                    }, 500);
+
+                    break;
+
+                case 4:
+                    $('body').css({'background': '#90C461'});
+
+                    $('.text8').removeClass('fadeInDown');
+                    window.setTimeout(function(){
+                        $('.text8').addClass('fadeInDown');
+                    }, 500);
+
+                    $('.text9').removeClass('fadeInUp');
+                    window.setTimeout(function(){
+                        $('.text9').addClass('fadeInUp');
+                    }, 1000);
+
+                    $('.text10').removeClass('fadeInUp');
+                    window.setTimeout(function(){
+                        $('.text10').addClass('fadeInUp');
+                    }, 1500);
+
+                    break;
+
+                case 5:
+                    $('body').css({'background': '#4675CC'});
+
+                    $('.text11').removeClass('fadeIn');
+                    window.setTimeout(function(){
+                        $('.text11').addClass('fadeIn');
+                    }, 1500);
+
+                    $('.text12').removeClass('fadeIn');
+                    window.setTimeout(function(){
+                        $('.text12').addClass('fadeIn');
+                    }, 1000);
+                    
+
+                    window.setTimeout(function(){
+
+                        $('.blue-circle1')
+                        .css({'left': '56%', 'top': '54%'})
+                        .animate({'left': '59%', 'top': '55%'}, 1000, 'easeOutElastic');
+
+                        $('.blue-circle2')
+                        .css({'left': '50%', 'top': '23%'})
+                        .animate({'left': '52%', 'top': '15%'}, 1000, 'easeOutElastic');
+
+                        $('.blue-circle3')
+                        .css({'left': '39%', 'top': '29%'})
+                        .animate({'left': '36%', 'top': '21%'}, 1000, 'easeOutElastic');
+
+                        $('.blue-circle4')
+                        .css({'left': '39%', 'top': '65%'})
+                        .animate({'left': '36%', 'top': '74%'}, 1000, 'easeOutElastic');
+
+                        $('.blue-circle5')
+                        .css({'left': '50%', 'top': '72%'})
+                        .animate({'left': '52%', 'top': '82%'}, 1000, 'easeOutElastic');
+
+                    }, 10);
+
+                    break;
+
+                case 6:
+                    $('body').css({'background': '#4675CC'});
+                    break;
+            }
+        };
 
     $('#fullpage').fullpage({
         scrollingSpeed: 700,
@@ -211,11 +576,11 @@ $(document).ready(function(){
             $('.navbar-right>li').removeClass('active');
             $('.navbar-right>li').eq(nextIndex-1).addClass('active');
 
-            changeBgColor(nextIndex);
+            pageTransform(nextIndex);
         }
     });
 
-    changeBgColor(1);
+    pageTransform(1);
 
 
 
@@ -291,22 +656,22 @@ $(document).ready(function(){
         <!-- <div class="sprite-car"></div> -->
         <div class="container pr-50 pl-60 pt-30 co-ffffff text-center">
             <div style="padding-right: 350px;">
-                <img src="{{MEDIA_URL}}img/home/cloud.png">
+                <img class="float-cloud" src="{{MEDIA_URL}}img/home/cloud.png">
             </div>
             <div class="pt-10">
-                <span class="f25">全球最大汽车服务平台</span>
+                <span class="f25 text1">全球最大汽车服务平台</span>
             </div>
             <div>
-                <span class="f60 fb">车咖来了</span>
+                <span class="text2 f60 fb animated">车咖来了</span>
             </div>
             <div class="pt-3">
-                <span class="f14">集汽车快修美容服务、互联网线上社交、汽车服务体验店于一身， </span>
+                <span class="f14 text3">集汽车快修美容服务、互联网线上社交、汽车服务体验店于一身， </span>
             </div>
             <div class="pt-3">
-                <span class="f14">将爱车的小咖大咖们聚集起来，感受互联网时代汽车服务带来的便利。</span>
+                <span class="f14 text3">将爱车的小咖大咖们聚集起来，感受互联网时代汽车服务带来的便利。</span>
             </div>
             <div class="pt-3">
-                <span class="f14">这一切，只为生活更美好！</span>
+                <span class="f14 text3">这一切，只为生活更美好！</span>
             </div>
 
             <div class="pr" style="min-height: 200px;">
@@ -335,26 +700,32 @@ $(document).ready(function(){
         </div> -->
 
         <div class="container pr-50 pl-60 pt-50 co-ffffff text-center">
-            <div class="pb-20">
-                <span class="f25">互联网＋实体店全方位服务，享受汽车大咖体验</span>
+            <div class="pb-20 f25 text4 animated">
+                互联网＋实体店全方位服务，享受汽车大咖体验
             </div>
-            <div>
-                <span class="f14">在线上，将爱车用户聚集在一起，聊车聊生活，提供全面的互联网汽车服务</span>
+            <div class="f14 text5 animated">
+                线上，将爱车用户聚集在一起，聊车聊生活，提供全面的互联网汽车服务
             </div>
-            <div>
-                <span class="f14">在线下，车咖汽车快修连锁，让你体验不一样的实体店服务</span>
+            <div class="f14 text5 animated">
+                在线下，车咖汽车快修连锁，让你体验不一样的实体店服务
             </div>
 
             <div class="pr" style="min-height: 320px;">
                 <img class="pa" style="bottom: 15%; left: 24%; width: 550px;" src="{{MEDIA_URL}}img/home/building.png">
-                <img class="pa" style="bottom: 0; left: 30%; width: 130px;" src="{{MEDIA_URL}}img/home/phone.png">
+                <img class="pa animated fadeInLeftSmall phone" style="bottom: 0; left: 30%; width: 130px;" src="{{MEDIA_URL}}img/home/phone.png">
                 <img class="pa" style="bottom: 13%; left: 44%; width: 35px;" src="{{MEDIA_URL}}img/home/house1.png">
-                <img class="pa" style="bottom: 5%; left: 55%; width: 65px;" src="{{MEDIA_URL}}img/home/house1.png">
+                <img class="pa" style="bottom: 4%; left: 55%; width: 65px;" src="{{MEDIA_URL}}img/home/house1.png">
                 <img class="pa" style="bottom: 14%; left: 71%; width: 25px;" src="{{MEDIA_URL}}img/home/house2.png">
-                <img class="pa" style="bottom: 5%; left: 63%; width: 55px;" src="{{MEDIA_URL}}img/home/car4.png">
-                <img class="pa" style="bottom: 23%; left: 44%; width: 35px;" src="{{MEDIA_URL}}img/home/cloud1.png">
-                <img class="pa" style="bottom: 24%; left: 55.5%; width: 55px;" src="{{MEDIA_URL}}img/home/cloud1.png">
-                <img class="pa" style="bottom: 22%; left: 71%; width: 25px;" src="{{MEDIA_URL}}img/home/cloud1.png">
+                <img class="pa car4 animated" style="bottom: 4%; left: 63%; width: 55px;" src="{{MEDIA_URL}}img/home/car4.png">
+                <img class="pa" style="bottom: 27%; left: 44.4%; width: 25px;" src="{{MEDIA_URL}}img/home/cloud1.png">
+                <img class="pa flash-cloud-line1" style="bottom: 25%; left: 45%; width: 13px;" src="{{MEDIA_URL}}img/home/cloud-line1.png">
+                <img class="pa flash-cloud-line2" style="bottom: 24%; left: 44.7%; width: 20px;" src="{{MEDIA_URL}}img/home/cloud-line2.png">
+                <img class="pa" style="bottom: 28%; left: 56%; width: 45px;" src="{{MEDIA_URL}}img/home/cloud1.png">
+                <img class="pa flash-cloud-line1" style="bottom: 25.6%; left: 57.2%; width: 19px;" src="{{MEDIA_URL}}img/home/cloud-line1.png">
+                <img class="pa flash-cloud-line2" style="bottom: 24.5%; left: 56.7%; width: 30px;" src="{{MEDIA_URL}}img/home/cloud-line2.png">
+                <img class="pa" style="bottom: 24.5%; left: 71.2%; width: 20px;" src="{{MEDIA_URL}}img/home/cloud1.png">
+                <img class="pa flash-cloud-line1" style="bottom: 22.8%; left: 71.6%; width: 12px;" src="{{MEDIA_URL}}img/home/cloud-line1.png">
+                <img class="pa flash-cloud-line2" style="bottom: 22%; left: 71.3%; width: 18px;" src="{{MEDIA_URL}}img/home/cloud-line2.png">
             </div>
         </div>
     </div>
@@ -366,20 +737,20 @@ $(document).ready(function(){
                     <img class="pa" style="bottom: 20%; right: 10%; width: 230px;" src="{{MEDIA_URL}}img/home/map.png">
                     <img class="pa" style="bottom: 30%; left: 55%; width: 150px;" src="{{MEDIA_URL}}img/home/location.png">
                     <img class="pa" style="bottom: 80%; left: 50%; width: 80px;" src="{{MEDIA_URL}}img/home/cloud2.png">
-                    <img class="pa" style="bottom: 30%; left: 71%; width: 100px;" src="{{MEDIA_URL}}img/home/car5.png">
+                    <img class="pa car5" style="bottom: 30%; left: 50%; width: 100px;" src="{{MEDIA_URL}}img/home/car5.png">
                 </div>
                 <div class="col-md-6 pt-30">
-                    <div>
-                        <span class="f25">全国服务联网</span>
+                    <div class="f25 animated text6">
+                        全国服务联网
                     </div>
-                    <div class="pb-20">
-                        <span class="f25">美容快修超简单</span>
+                    <div class="mb-20 f25 animated text6">
+                        美容快修超简单
                     </div>
-                    <div>
-                        <span class="f14">车咖快修美容连锁，统一化管理和标准化服务的实体旗舰店</span>
+                    <div class="f14 animated text7">
+                        车咖快修美容连锁，统一化管理和标准化服务的实体旗舰店
                     </div>
-                    <div>
-                        <span class="f14">24小时守护，终身会员全国享受</span>
+                    <div class="f14 animated text7">
+                        24小时守护，终身会员全国享受
                     </div>
                 </div>
             </div>
@@ -390,27 +761,27 @@ $(document).ready(function(){
         <div class="container pr-50 pl-60 pt-50 co-ffffff">
             <div class="row">
                 <div class="col-md-6 text-right">
-                    <div>
-                        <span class="f25">众筹投资模式</span>
+                    <div class="f25 animated text8">
+                        众筹投资模式
                     </div>
-                    <div class="pb-20">
-                        <span class="f25">降低风险，保障利益</span>
+                    <div class="f25 animated text8 mb-20">
+                        降低风险，保障利益
                     </div>
-                    <div class="pt-10">
-                        <span class="f14">前所未有的投资形式</span>
+                    <div class="f14 animated text9 mt-10">
+                        前所未有的投资形式
                     </div>
-                    <div>
-                        <span class="f14">车咖采用众筹模式，分摊风险的同时最大化提升收益</span>
+                    <div class="f14 animated text9">
+                        车咖采用众筹模式，分摊风险的同时最大化提升收益
                     </div>
-                    <div class="pt-15">
-                        <span class="f14">一次投资，终身收益</span>
+                    <div class="f14 animated text10 mt-15">
+                        一次投资，终身收益
                     </div>
-                    <div>
-                        <span class="f14">您将成为车咖的终身会员，享受免费汽车服务</span>
+                    <div class="f14 animated text10">
+                        您将成为车咖的终身会员，享受免费汽车服务
                     </div>
                 </div>
                 <div class="col-md-6 pr" style="min-height: 250px;">
-                    <img class="pa" style="top: -6%; left: 10%; width: 250px;" src="{{MEDIA_URL}}img/home/cloud3.png">
+                    <img class="pa float-cloud2" style="top: -6%; left: 10%; width: 250px;" src="{{MEDIA_URL}}img/home/cloud3.png">
                     <img class="pa" style="top: 51%; left: 30%; width: 150px;" src="{{MEDIA_URL}}img/home/car6.png">
                     <img class="pa" style="top: 35%; left: 40%; width: 40px;" src="{{MEDIA_URL}}img/home/hat.png">
                     <img class="pa" style="top: 6%; left: 13%; width: 180px;" src="{{MEDIA_URL}}img/home/circle.png">
@@ -422,14 +793,14 @@ $(document).ready(function(){
 
     <div class="section">
         <div class="container pr-50 pl-60 pt-50 co-ffffff text-center">
-            <div class="pb-20">
-                <span class="f25">基于互联网的汽车服务O2O，颠覆传统业态</span>
+            <div class="mb-20 f25 text12 animated">
+                基于互联网的汽车服务O2O，颠覆传统业态
             </div>
-            <div>
-                <span class="f14">全新商业模式，将移动互联网与传统汽车服务相结合</span>
+            <div class="text11 f14 animated">
+                全新商业模式，将移动互联网与传统汽车服务相结合
             </div>
-            <div>
-                <span class="f14">让用户紧密联系起来，提供更具价值的汽车后服务</span>
+            <div class="text11 f14 animated">
+                让用户紧密联系起来，提供更具价值的汽车后服务
             </div>
 
             <div class="pr" style="min-height: 350px;">
@@ -443,27 +814,61 @@ $(document).ready(function(){
                 <div class="pa" style="top: 40%; left: 46%; background-color: #406EBB; width: 115px; height: 115px; border-radius: 50%;">
                     <img class="pa" style="bottom: 32%; right: 16%; width: 70px;" src="{{MEDIA_URL}}img/home/logo.png">
                 </div>
-                <div class="pa blue-circle" style="top: 55%; left: 59%;">
+                <div class="pa blue-circle blue-circle1" style="top: 54%; left: 56%;">
                     <img class="pa" style="bottom: 28%; right: 18%; width: 40px;" src="{{MEDIA_URL}}img/home/pic1.png">
                 </div>
-                <div class="pa blue-circle" style="top: 15%; left: 52%;">
+                <div class="pa blue-circle blue-circle2" style="top: 23%; left: 50%;">
                     <img class="pa" style="bottom: 20%; right: 18%; width: 40px;" src="{{MEDIA_URL}}img/home/pic2.png">
                 </div>
-                <div class="pa blue-circle" style="top: 17%; left: 35%;">
+                <div class="pa blue-circle blue-circle3" style="top: 29%; left: 39%;">
                     <img class="pa" style="bottom: 20%; right: 18%; width: 40px;" src="{{MEDIA_URL}}img/home/pic3.png">
                 </div>
-                <div class="pa blue-circle" style="top: 72%; left: 36%;">
+                <div class="pa blue-circle blue-circle4" style="top: 72%; left: 36%;">
                     <img class="pa" style="bottom: 20%; right: 18%; width: 40px;" src="{{MEDIA_URL}}img/home/pic4.png">
                 </div>
-                <div class="pa blue-circle" style="top: 82%; left: 52%;">
+                <div class="pa blue-circle blue-circle5" style="top: 72%; left: 50%;">
                     <img class="pa" style="bottom: 25%; right: 18%; width: 40px;" src="{{MEDIA_URL}}img/home/pic5.png">
                 </div>
             </div>
         </div>
     </div>
 
+    <div class="section">
+        <div class="container-fluid pt-50 co-ffffff bgc-282828 pa" style="left: 0; bottom: 0; width: 100%;">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-4">
+                    <div class="col-md-2">
+                        <i class="contact-hover fa fa-envelope-o f28 bdc-ffffff border-2 bdr-circle pl-8 pr-8 pb-8 pt-8"></i>
+                    </div>
+                    <div class="col-md-2">
+                        <i class="contact-hover fa fa-qq f28 bdc-ffffff border-2 bdr-circle pl-8 pr-8 pb-8 pt-8"></i>
+                    </div>
+                    <div class="col-md-2">
+                        <i class="contact-hover fa fa-weibo f28 bdc-ffffff border-2 bdr-circle pl-8 pr-8 pb-8 pt-8"></i>
+                    </div>
+                    <div class="col-md-2">
+                        <i class="contact-hover fa fa-weixin f28 bdc-ffffff border-2 bdr-circle pl-6 pr-6 pb-8 pt-8"></i>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-md-offset-4 pr">
+                    <div class="pa bgc-666666" style="height: 1px; width: 140px; left: -20px; top: 42px;"></div>
+                    <div class="col-md-4 col-md-offset-2 pt-30 f18 pl-22">4008 - 527 - 527</div>
+                    <div class="pa bgc-666666" style="height: 1px; width: 140px; left: 290px; top: 42px;"></div>
+                </div>
+
+                <div class="col-md-6 col-md-offset-4 pl-160 pt-45">
+                    <img class="w80" src="{{MEDIA_URL}}img/logo.png">
+                </div>
+
+                <div class="col-md-4 col-md-offset-4 pt-20 pb-20 co-555555 f12 text-center">
+                    Copyright © 2014 - 2015 cekaa.com. All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
-<div style="min-height: 300px;">11111</div>
 {% endblock %}
 
 {% block footer %}{% endblock %}
