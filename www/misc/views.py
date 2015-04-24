@@ -144,10 +144,9 @@ def show_index(request):
     """
     @note: 自动显示首页
     """
+    from www.account.views import home_welcome
     dict_user_agent = utils.format_user_agent(request.META.get('HTTP_USER_AGENT'))
     if dict_user_agent['device_type'] in ('phone', ):
-        from www.car_wash.views import index
-        return index(request)
+        return home_welcome(request)
     else:
-        from www.account.views import home_welcome
         return home_welcome(request)
