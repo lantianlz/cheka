@@ -613,6 +613,9 @@ $(document).ready(function(){
             $('.car4').css({'opacity': 0});
             $('.phone').css({'opacity': 0});
 
+            if($.browser.msie){
+                return;
+            }
             $('.blue-circle1')
             .animate({'left': '56%', 'top': '54%'}, 500);
 
@@ -701,22 +704,22 @@ $(document).ready(function(){
 
                     $('.text4').removeClass('fadeInUp');
                     window.setTimeout(function(){
-                        $('.text4').addClass('fadeInUp');
+                        $('.text4').addClass('fadeInUp').css({'opacity': 1});
                     }, 500);
 
                     $('.text5').removeClass('fadeInUp');
                     window.setTimeout(function(){
-                        $('.text5').addClass('fadeInUp');
+                        $('.text5').addClass('fadeInUp').css({'opacity': 1});
                     }, 1000);
 
                     $('.car4').removeClass('fadeInRight');
                     window.setTimeout(function(){
-                        $('.car4').addClass('fadeInRight');
+                        $('.car4').addClass('fadeInRight').css({'opacity': 1});
                     }, 1500);
 
                     $('.phone').removeClass('fadeInLeftSmall');
                     window.setTimeout(function(){
-                        $('.phone').addClass('fadeInLeftSmall');
+                        $('.phone').addClass('fadeInLeftSmall').css({'opacity': 1});
                     }, 1500);
                     break;
 
@@ -725,12 +728,12 @@ $(document).ready(function(){
 
                     $('.text6').removeClass('fadeInRightSmall');
                     window.setTimeout(function(){
-                        $('.text6').addClass('fadeInRightSmall');
+                        $('.text6').addClass('fadeInRightSmall').css({'opacity': 1});
                     }, 500);
 
                     $('.text7').removeClass('fadeInRightSmall');
                     window.setTimeout(function(){
-                        $('.text7').addClass('fadeInRightSmall');
+                        $('.text7').addClass('fadeInRightSmall').css({'opacity': 1});
                     }, 700);
 
                     $('.car5').css({'left': '50%', 'opacity': 0});
@@ -750,17 +753,17 @@ $(document).ready(function(){
 
                     $('.text8').removeClass('fadeInDown');
                     window.setTimeout(function(){
-                        $('.text8').addClass('fadeInDown');
+                        $('.text8').addClass('fadeInDown').css({'opacity': 1});
                     }, 500);
 
                     $('.text9').removeClass('fadeInUp');
                     window.setTimeout(function(){
-                        $('.text9').addClass('fadeInUp');
+                        $('.text9').addClass('fadeInUp').css({'opacity': 1});
                     }, 1000);
 
                     $('.text10').removeClass('fadeInUp');
                     window.setTimeout(function(){
-                        $('.text10').addClass('fadeInUp');
+                        $('.text10').addClass('fadeInUp').css({'opacity': 1});
                     }, 1500);
 
                     break;
@@ -770,15 +773,18 @@ $(document).ready(function(){
 
                     $('.text11').removeClass('fadeIn');
                     window.setTimeout(function(){
-                        $('.text11').addClass('fadeIn');
+                        $('.text11').addClass('fadeIn').css({'opacity': 1});
                     }, 1500);
 
                     $('.text12').removeClass('fadeIn');
                     window.setTimeout(function(){
-                        $('.text12').addClass('fadeIn');
+                        $('.text12').addClass('fadeIn').css({'opacity': 1});
                     }, 1000);
                     
 
+                    if($.browser.msie){
+                        return;
+                    }
                     window.setTimeout(function(){
 
                         $('.blue-circle1')
@@ -821,12 +827,18 @@ $(document).ready(function(){
             $('.navbar-right>li').eq(nextIndex-1).addClass('active');
 
             pageTransform(nextIndex);
+            
         }
     });
 
     pageTransform(1);
 
-
+    // IE下第五屏
+    if($.browser.msie){
+        $('.IE-only').prev().addClass('none');
+        $('.IE-only').removeClass('none');
+    }
+    
 
     // 移动的车
     // $.Global.Animation.SpriteAnimation('.sprite-car', {imgSrc: '{{MEDIA_URL}}img/sprite-plane.png', height: 89});
@@ -1080,6 +1092,10 @@ $(document).ready(function(){
                     <img class="pa" style="bottom: 18%; right: 22%; width: 33px;" src="{{MEDIA_URL}}img/home/pic5.png">
                 </div>
             </div>
+            <div class="text-center pt-30 IE-only none" style="min-height: 350px;">
+                <img style="width: 300px;" src="{{MEDIA_URL}}img/home/section5.png">
+            </div>
+
         </div>
     </div>
 
