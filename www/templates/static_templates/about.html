@@ -1,292 +1,420 @@
-{% extends "mobile/car_wash/base_car_wash.html" %}
+{% extends "pc/base/base_home.html" %}
 
 {% block title_all %}车咖{% endblock %}
 
-{% block css %}
-<link rel="stylesheet" type="text/css" href="{{MEDIA_URL}}css/animate/animate.min.css" />
+{% block home_css %}
 <style type="text/css">
-.active a{
-    color: #f23a1a;
+.navbar-fixed-top{
+    background-color: #F38349;
 }
-.next-page{
-    padding: 8px;
+.fade-text{
+    overflow: hidden;
+    vertical-align: top;
+    height: 40px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.team-item{
+    margin-bottom: 50px;
+    -webkit-perspective: 1000px;
+       -moz-perspective: 1000px;
+        -ms-perspective: 1000px;
+            perspective: 1000px;
+}
+
+/*.team-item:hover .card{
+    transform: rotateY(90deg);
     opacity: 0;
 }
-@-webkit-keyframes fadeInDown {
-  0% {
+
+.team-item:hover .person-desc{
+    transform: rotateY(360deg);
+    opacity: 1;
+}*/
+
+.card{
+    -webkit-transition: all 0.4s;
+       -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+            transition: all 0.4s;
+    -webkit-transform: rotateY(0deg);
+       -moz-transform: rotateY(0deg);
+        -ms-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+    cursor: pointer;
+    opacity: 1;
+    padding-left: 25px;
+    padding-right: 30px;
+}
+
+.person-desc{
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-right: 35px;
+    margin-left: 25px;
+    /*margin-bottom: 50px;*/
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 25px;
+    height: 100%;
     opacity: 0;
-    -webkit-transform: translate3d(0, 0, 0);
-  }
-
-  75% {
-    opacity: 1;
-    -webkit-transform: translate3d(0, 25%, 0);
-  }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, 35%, 0);
-  }
-}
-.fadeInDown {
-  -webkit-animation-name: fadeInDown;
+    background-color: #F38349;
+    color: #ffffff;
+    cursor: pointer;
+    line-height: 22px;
+    -webkit-transition: all 0.4s;
+       -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+            transition: all 0.4s;
+    -webkit-transform: rotateY(270deg);
+       -moz-transform: rotateY(270deg);
+        -ms-transform: rotateY(270deg);
+            transform: rotateY(270deg);
 }
 
-.step-1{
-    opacity: 1;
-    margin-top: 0px;
-}
-
-.step-2{
-    opacity: 1;
-    margin-top: -100px;
-}
-
-.step-3{
-    opacity: 1;
-    margin-top: -100px;
-}
-
-.step-4{
-    opacity: 1;
-    margin-top: -100px;
+.address{
+    z-index: 1;
+    left: 20%;
+    top: 20%;
+    color: #fff;
+    border: 1px solid #CC947A;
+    box-shadow: 2px 2px 4px #999;
+    background-color: #F38349;
+    padding: 20px;
+    border-radius: 4px;
 }
 </style>
 {% endblock %}
 
-{% block javascript %}
-<script type="text/javascript" src="{{MEDIA_URL}}js/jquery/jquery.fullPage.min.js"></script>
+{% block home_js %}
 <script type="text/javascript" src="{{MEDIA_URL}}js/jquery/jquery.easing.1.3.min.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=o4O12xsCGirt60xLVt1GLTI6"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-    var nextPageAnimateInterval = null;
+    
+    // 文字效果切换
+    var WORDS = [
+            // ['inventors', 'use of the data', 'rebuilding the relationship', 'man to the vehicle'],
+            // ['engineers', 'use tech power', 'improve traffic flow', 'thousands of users'],
+            // ['supporters of the Open', 'share data', 'allow as many', 'create their own services'],
+            // ['pleased to meet you', 'you are, contact us', 'we can chat', 'rain and shine'],
+            // ['human beings', 'use transport', 'get to work', 'early'],
+            // ['geeks', 'devour books of sci -fi', 'imagine the future', 'mobility']
 
-    var nextPageAnimate = function(pageIndex){
+            ['是中国最好的', '服务平台', '为你提供最好', '汽车后服务'],
+            ['有中国最好的', '服务实体连锁店', '让你体验不一样', '实体店']
+        ],
+        getWordWidth = function(word){
+            var temp = $('<span style="font-weight: bold; visibility: hidden;">'+word+'</span>').appendTo('.fade-move'),
+                width = temp.width();
 
-        if(nextPageAnimateInterval){
-            window.clearInterval(nextPageAnimateInterval);
-        }
+            temp.remove();
+            return width;
+        },
+        fadeText = function(words){
+            $.each(words, function(i){
 
-        var target = $('.section').eq(pageIndex-1).find('.next-page');
-        target.addClass('fadeInDown');
+                $('.fade-text').eq(i)
+                .animate({
+                    'opacity': 0,
+                    'width': getWordWidth(words[i])
+                }, 500, 'easeOutExpo', function(){
+                    
+                    $(this).text(words[i]);
+                    $(this).animate({
+                        'opacity': 1
+                    }, 500, 'easeInExpo');
+
+                });
+
+            });
+        },
+        loopFadeText = function(){
+            $.each(WORDS, function(i){
+
+                window.setTimeout(function(){
+
+                    fadeText(WORDS[i]);
+
+                }, i*5000);
+                
+            });
+        };
+
+    window.setInterval(function(){
+        loopFadeText();
+    }, WORDS.length * 5000);
+    
+    loopFadeText();
+
+
+    // 名片翻转 
+    $('.card').bind('click', function(){
+        var me = $(this);
+        me.css({
+            '-webkit-transform': 'rotateY(90deg)', 
+            '   -moz-transform': 'rotateY(90deg)', 
+            '    -ms-transform': 'rotateY(90deg)', 
+            '        transform': 'rotateY(90deg)', 
+            'opacity': 0
+        });
         window.setTimeout(function(){
-            target.removeClass('fadeInDown');
-        }, 1100);
-
-        nextPageAnimateInterval = window.setInterval(function(){
-            
-            target.addClass('fadeInDown');
-
-            window.setTimeout(function(){
-                target.removeClass('fadeInDown');
-            }, 1100);
-
-        }, 1200);
-    },
-    pageTransform = function(pageIndex){
-
-        switch(pageIndex){
-
-            case 1:
-                $('.logo').hide().removeClass('bounceIn');
-                window.setTimeout(function(){
-                    $('.logo').show().addClass('bounceIn');
-                }, 500);
-
-                $('.name').hide();
-                window.setTimeout(function(){
-                    $('.name').fadeIn('slow');
-                }, 1200);
-                break;
-
-            case 2:
-                $('.s1').removeClass('pulse');
-                $('.s2').removeClass('pulse');
-                $('.s3').removeClass('pulse');
-
-                window.setTimeout(function(){
-                    $('.s1').addClass('pulse');
-                }, 500);
-                window.setTimeout(function(){
-                    $('.s2').addClass('pulse');
-                }, 1500);
-                window.setTimeout(function(){
-                    $('.s3').addClass('pulse');
-                }, 2500);
-                break;
-
-            case 3:
-                $('.step-1').hide().css({'margin-top': 50, 'opacity': '0'});
-                $('.step-2').hide().css({'margin-top': -50, 'opacity': '0'});
-                $('.step-3').hide().css({'margin-top': -50, 'opacity': '0'});
-                $('.step-4').hide().css({'margin-top': -50, 'opacity': '0'});
-
-                window.setTimeout(function(){
-                    $('.step-1').show().animate({'margin-top': 0, 'opacity': '1'}, 900, 'easeOutCubic');
-                }, 1000);
-
-                window.setTimeout(function(){
-                    $('.step-2').show().animate({'margin-top': -95, 'opacity': '1'}, 900, 'easeOutCubic');
-                }, 2000);
-
-                window.setTimeout(function(){
-                    $('.step-3').show().animate({'margin-top': -95, 'opacity': '1'}, 900, 'easeOutCubic');
-                }, 3000);
-
-                window.setTimeout(function(){
-                    $('.step-4').show().animate({'margin-top': -95, 'opacity': '1'}, 900, 'easeOutCubic');
-                }, 3000);
-
-                break;
-
-            default:
-                break;
-        }
-    };
-
-    // 券屏插件设置
-    $('#fullpage').fullpage({
-        scrollingSpeed: 700,
-        easing: 'easeOutExpo',
-        navigation: false,
-        onLeave: function(index, nextIndex, direction){
-            nextPageAnimate(nextIndex);
-
-            //pageTransform(nextIndex);
-        }
+            me.next().css({
+                '-webkit-transform': 'rotateY(360deg)', 
+                '   -moz-transform': 'rotateY(360deg)', 
+                '    -ms-transform': 'rotateY(360deg)', 
+                '        transform': 'rotateY(360deg)', 
+                'opacity': 1
+            });
+        }, 180);
+    });
+    
+    $('.person-desc').bind('mouseleave', function(){
+        var me = $(this);
+        me.css({
+            '-webkit-transform': 'rotateY(270deg)', 
+            '   -moz-transform': 'rotateY(270deg)', 
+            '    -ms-transform': 'rotateY(270deg)', 
+            '        transform': 'rotateY(270deg)', 
+            'opacity': 0
+        });
+        window.setTimeout(function(){
+            me.prev().css({
+                '-webkit-transform': 'rotateY(0deg)', 
+                '   -moz-transform': 'rotateY(0deg)', 
+                '    -ms-transform': 'rotateY(0deg)', 
+                '        transform': 'rotateY(0deg)', 
+                'opacity': 1
+            });
+        }, 180);
     });
 
-    // 单击向下箭头导航
-    $('.next-page').bind('click', function(){
-        $.fn.fullpage.moveSectionDown();
-    });
 
-    // 横竖屏判断
-    $(window).bind('orientationchange', function(e){
-        if(window.orientation == 90 || window.orientation == -90){
-            window.alert('为了更好的浏览体验，请使用竖屏浏览');
-        } else {
-            window.location.reload();
-        }
-    });
-
-    nextPageAnimate(1);
-    //pageTransform(1);
-
+    // 地图
+    $('#map').css({'height': $(window).height() - 80});
+    var map = new BMap.Map("map"),
+        point = new BMap.Point(104.062668, 30.544719);
+    // map.centerAndZoom("成都", 13);
+    map.centerAndZoom(point, 14);
+    map.addControl(
+        new BMap.NavigationControl()
+    );
+    // map.setMapStyle({style: 'grayscale'}); 
+    // map.enableScrollWheelZoom(true);
+    var marker = new BMap.Marker(point);
+    map.addOverlay(marker);
+    marker.setAnimation(BMAP_ANIMATION_BOUNCE);
+    
 });
 </script>
 {% endblock %}
 
 {% block topbar %}{% endblock %}
 
-{% block container %}
-<div id="fullpage">
+{% block base_container %}
+<div class="container-fluid bgc-F38349" style="height: 400px; padding-top: 180px;">
+    <div class="container text-center f25 co-ffffff fade-move">
+        <!-- <span class="">We are</span>
+        <span class="fade-text">pleased to meet you</span>
+        <span class="">who</span>
+        <span class="fade-text">you are, contact us</span>
+        <br>
+        <span class="">to</span>
+        <span class="fade-text">we can chat</span>
+        <span class="">for</span>
+        <span class="fade-text">rain and shine</span> -->
 
-    <div class="section bgc-f23a1a co5 text-center pr" style="padding-top: 15%;">
-        <div class="f35 fb">专属于年轻人的</div>
-        <div class="f60 fb">洗车平台</div>
-        <div class="f14 pl-15 pr-15 pt-20">汇聚你身边的洗车行，为你提供最优惠、最便捷、最时尚的洗车服务</div>
-        <div class="logo" style="padding-top: 15%" >
-            <img class="w80" src="{{MEDIA_URL}}img/about_m/logo.png">
-        </div>
-        <div class="f22 pt-5 name animated">车咖</div>
-
-        <div class="w text-center pa" style="bottom: 2%;">
-            <i class="fa fa-angle-double-down co5 f25 next-page animated"></i>
-        </div>
+        <span class="">我们</span>
+        <span class="fade-text">是中国最好的</span>
+        <span class="">汽车后</span>
+        <span class="fade-text">服务平台</span>
+        <br>
+        <span class="">致力于</span>
+        <span class="fade-text">为你提供最好</span>
+        <span class="">的</span>
+        <span class="fade-text">汽车后服务</span>
     </div>
-
-    <div class="section bgc-ffffff co1 pr" style="padding-top: 15%;">
-
-        <div class="container w300 pr s1 animated" style="padding-left: 85px; padding-bottom: 50px;">
-            <img class="pa w70" style="left: 0px;" src="{{MEDIA_URL}}img/homepage/drop.png">
-            <span class="f20 pa f22 co5 fb" style="left: 13px; top: 19px;">省钱</span>
-            <div class="pt-15">最心动的折扣和优惠活动</div>
-            <div>随时随地，让你洗车更省钱</div>
-        </div>
-        <div class="container w300 pr s2 animated" style="padding-left: 85px; padding-bottom: 50px;">
-            <img class="pa w70" style="left: 0px;" src="{{MEDIA_URL}}img/homepage/drop.png">
-            <span class="f20 pa f22 co5 fb" style="left: 13px; top: 19px;">便捷</span>
-            <div class="pt-15">汇聚你身边的洗车网点</div>
-            <div>无论出行还是在家，让洗车更便捷</div>
-        </div>
-        <div class="container w300 pr s3 animated" style="padding-left: 85px; padding-bottom: 50px;">
-            <img class="pa w70" style="left: 0px;" src="{{MEDIA_URL}}img/homepage/drop.png">
-            <span class="f20 pa f22 co5 fb" style="left: 13px; top: 19px;">时尚</span>
-            <div class="pt-15">支持多种在线付款</div>
-            <div>告别传统付款方式，让支付更时尚</div>
-        </div>
-        <div class="container w300 pr" style="padding-top: 70px;">
-            <img class="w" src="{{MEDIA_URL}}img/about_m/cars.png">
-        </div>
-
-        <div class="w text-center pa" style="bottom: 2%;">
-            <i class="fa fa-angle-double-down co15 f25 next-page animated"></i>
-        </div>
-        
-    </div>
-
-    <div class="section bgc-ffffff pr" style="padding-top: 4%;">
-        <div class="text-center co15" style="-webkit-transform: rotateZ(-10deg);">
-            <span class="f35 fb">那么，</span>
-            <span class="f25 fb">如何使用呢？</span>
-        </div>
-        <div class="bgc-f23a1a step-1" style="-webkit-transform: rotateZ(-10deg); margin-left: -25px; width: 120%;">
-            <div class="container w300 pr" style="min-height: 240px; -webkit-transform: rotateZ(10deg);">
-                <img class="pa" style="width: 60px; left: 0px; top: 50px;" src="{{MEDIA_URL}}img/about_m/01.png">
-
-                <img class="pa" style="width: 130px; right:5px; top: 0px;" src="{{MEDIA_URL}}img/homepage/use-step-1.png">
-
-                <span class="pa f25 co5" style="left: 70px; top: 46px;">选择</span>
-                <span class="pa f12 co5" style="left: 70px; top: 86px;">选择离你最近或</span>
-                <span class="pa f12 co5" style="left: 70px; top: 102px;">喜欢的洗车行</span>
+</div>
+<div class="container pr-50 pl-60 pt-50 pb-20">
+    <ul class="list-inline row">
+        <li class="col-md-4 pr team-item">
+            <div class="card">
+                <div class="w300">
+                    <img class="w" src="{{MEDIA_URL}}img/about/person1.png">
+                </div>
+                <div class="bgc-ececec f17 pl-15 pt-20 w300">
+                    扬子正
+                </div>
+                <div class="bgc-ececec f15 pl-15 pt-20 pb-20 w300">
+                    车咖 总裁
+                </div>
             </div>
-        </div>
-        <div class="bgc-ffffff step-2" style="-webkit-transform: rotateZ(10deg); margin-left: -25px; width: 120%;">
-            <div class="container w300 pr" style="min-height: 240px;-webkit-transform: rotateZ(-10deg);">
-                <img class="pa" style="width: 70px; right: 10px; top: 45px;" src="{{MEDIA_URL}}img/about_m/02.png">
-
-                <img class="pa" style="width: 130px; left:5px; top: 0px;" src="{{MEDIA_URL}}img/homepage/use-step-2.png">
-
-                <span class="pa f25 co15" style="right: 85px; top: 41px;">购买</span>
-                <span class="pa f12 co15" style="right: 85px; top: 81px;">点击购买，使用</span>
-                <span class="pa f12 co15" style="right: 85px; top: 97px;">支付宝或微信支付</span>
+            <div class="person-desc">
+                <p>
+                连续创业者，擅长商业模式设计。
+                </p>
+                <p>
+                为多家国内知名企业搭建商业生态系统，拥有13年以上过百场的公众演讲经验。
+                </p>
+                <p>
+                曾就职于韩国企业，世界500强，在国内多家知名企业担任副总裁一职。
+                </p>
+                <p>
+                06年以后开始进入互联网行业创业，第一年便让创业公司成为区域市场的领导者，服务的客户多数为上市公司，国内知名企业。
+                </p>
+                <p>
+                    移动互联网时代的到来，让他感受到了互联网行业对实体行业造成的巨大冲击，势必将重塑汽车前后市场的商业生态系统。
+                </p>
             </div>
-        </div>
-        <div class="bgc-f23a1a step-3" style="-webkit-transform: rotateZ(-10deg); margin-left: -25px; width: 120%;">
-            <div class="container w300 pr" style="min-height: 240px;-webkit-transform: rotateZ(10deg);">
-                <img class="pa" style="width: 70px; left: 0px; top: 50px;" src="{{MEDIA_URL}}img/about_m/03.png">
-
-                <img class="pa" style="width: 130px; right:5px; top: 0px;" src="{{MEDIA_URL}}img/about_m/use-step-3.png">
-
-                <span class="pa f25 co5" style="left: 75px; top: 51px;">消费</span>
-                <span class="pa f12 co5" style="left: 75px; top: 91px;">到店出示洗车码</span>
-                <span class="pa f12 co5" style="left: 75px; top: 107px;">开始愉快的洗车!</span>
+        </li>
+        <li class="col-md-4 pr team-item">
+            <div class="card">
+                <div class="w300">
+                    <img class="w" src="{{MEDIA_URL}}img/about/person2.jpg">
+                </div>
+                <div class="bgc-ececec f17 pl-15 pt-20 w300">
+                    罗春华
+                </div>
+                <div class="bgc-ececec f15 pl-15 pt-20 pb-20 w300">
+                    人力资源总监
+                </div>
             </div>
-        </div>
-
-        <div class="bgc-f23a1a step-4" style="-webkit-transform: rotateZ(0deg); margin-left: -25px; width: 120%; min-height: 300px;">
-        </div>
-
-        <div class="w text-center pa" style="bottom: 2%;">
-            <i class="fa fa-angle-double-down co5 f25 next-page animated"></i>
-        </div>
-    </div>
-
-    <div class="section bgc-ffffff text-center pr" style="padding-top: 15%;">
-        <div class="">
-            <img class="w100" src="{{MEDIA_URL}}img/logo.png">
-        </div>
-        <div class="f22 pt-10 co1">车咖</div>
-        <div class="co15 f20" style="padding-top: 15%;">
-            <a href="http://wpa.qq.com/msgrd?v=3&uin=390973848&site=qq&menu=yes"><i class="fa fa-qq pr-3"></i>390973848</a>
-        </div>
-        <div class="co15 f20" style="padding-top: 5%;">lz@cekaa.com</div>
-        <div class="co12 f12 pa w text-center" style="bottom: 5%;">Copyright &copy; {% if YEAR == "2014" %}{{YEAR}}{% else %}2014 - {{YEAR}}{% endif %} cekaa.com. All Rights Reserved.</div>
-    </div>
-
+            <div class="person-desc">
+                <p>
+                连续创业者，擅长商业模式设计。
+                </p>
+                <p>
+                为多家国内知名企业搭建商业生态系统，拥有13年以上过百场的公众演讲经验。
+                </p>
+                <p>
+                曾就职于韩国企业，世界500强，在国内多家知名企业担任副总裁一职。
+                </p>
+                <p>
+                06年以后开始进入互联网行业创业，第一年便让创业公司成为区域市场的领导者，服务的客户多数为上市公司，国内知名企业。
+                </p>
+            </div>
+        </li>
+        <li class="col-md-4 pr team-item">
+            <div class="card">
+                <div class="w300">
+                    <img class="w" src="{{MEDIA_URL}}img/about/person3.jpg">
+                </div>
+                <div class="bgc-ececec f17 pl-15 pt-20 w300">
+                    高超
+                </div>
+                <div class="bgc-ececec f15 pl-15 pt-20 pb-20 w300">
+                    国内法律顾问
+                </div>
+            </div>
+            <div class="person-desc">
+                <p>
+                连续创业者，擅长商业模式设计。
+                </p>
+                <p>
+                为多家国内知名企业搭建商业生态系统，拥有13年以上过百场的公众演讲经验。
+                </p>
+                <p>
+                曾就职于韩国企业，世界500强，在国内多家知名企业担任副总裁一职。
+                </p>
+                <p>
+                06年以后开始进入互联网行业创业，第一年便让创业公司成为区域市场的领导者，服务的客户多数为上市公司，国内知名企业。
+                </p>
+            </div>
+        </li>
+        <li class="col-md-4 pr team-item">
+            <div class="card">
+                <div class="w300">
+                    <img class="w" src="{{MEDIA_URL}}img/about/person4.jpg">
+                </div>
+                <div class="bgc-ececec f17 pl-15 pt-20 w300">
+                    陆麓
+                </div>
+                <div class="bgc-ececec f15 pl-15 pt-20 pb-20 w300">
+                    上市筹备组组长
+                </div>
+            </div>
+            <div class="person-desc">
+                <p>
+                连续创业者，擅长商业模式设计。
+                </p>
+                <p>
+                为多家国内知名企业搭建商业生态系统，拥有13年以上过百场的公众演讲经验。
+                </p>
+                <p>
+                曾就职于韩国企业，世界500强，在国内多家知名企业担任副总裁一职。
+                </p>
+                <p>
+                06年以后开始进入互联网行业创业，第一年便让创业公司成为区域市场的领导者，服务的客户多数为上市公司，国内知名企业。
+                </p>
+            </div>
+        </li>
+        <li class="col-md-4 pr team-item">
+            <div class="card">
+                <div class="w300">
+                    <img class="w" src="{{MEDIA_URL}}img/about/person5.jpg">
+                </div>
+                <div class="bgc-ececec f17 pl-15 pt-20 w300">
+                    余哲
+                </div>
+                <div class="bgc-ececec f15 pl-15 pt-20 pb-20 w300">
+                    海外法律顾问
+                </div>
+            </div>
+            <div class="person-desc">
+                <p>
+                连续创业者，擅长商业模式设计。
+                </p>
+                <p>
+                为多家国内知名企业搭建商业生态系统，拥有13年以上过百场的公众演讲经验。
+                </p>
+                <p>
+                曾就职于韩国企业，世界500强，在国内多家知名企业担任副总裁一职。
+                </p>
+                <p>
+                06年以后开始进入互联网行业创业，第一年便让创业公司成为区域市场的领导者，服务的客户多数为上市公司，国内知名企业。
+                </p>
+            </div>
+        </li>
+        <li class="col-md-4 pr team-item">
+            <div class="card">
+                <div class="w300">
+                    <img class="w" src="{{MEDIA_URL}}img/about/person6.jpg">
+                </div>
+                <div class="bgc-ececec f17 pl-15 pt-20 w300">
+                    王卓
+                </div>
+                <div class="bgc-ececec f15 pl-15 pt-20 pb-20 w300">
+                    投行顾问
+                </div>
+            </div>
+            <div class="person-desc">
+                <p>
+                连续创业者，擅长商业模式设计。
+                </p>
+                <p>
+                为多家国内知名企业搭建商业生态系统，拥有13年以上过百场的公众演讲经验。
+                </p>
+                <p>
+                曾就职于韩国企业，世界500强，在国内多家知名企业担任副总裁一职。
+                </p>
+                <p>
+                06年以后开始进入互联网行业创业，第一年便让创业公司成为区域市场的领导者，服务的客户多数为上市公司，国内知名企业。
+                </p>
+            </div>
+        </li>
+    </ul>
+    
 </div>
 
+<div class="container-fluid pl-0 pr-0 pr">
+    <div id="map"></div>
+    <div class="pa address">
+        <div class="f18">公司地址</div>
+        <div class="f15 pt-10">成都市益州大道中段1800号移动互联创业大厦</div>
+    </div>
+</div>
 {% endblock %}
 
 {% block nav %}{% endblock %}

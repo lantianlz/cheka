@@ -358,46 +358,12 @@ body{
 @-webkit-keyframes car-zoom-effect{
     0%{
         bottom: 10%;
-        transform: scale(0.8);
+        -webkit-transform: scale(0.8);
     }
     100%{
         bottom: 10%;
-        transform: scale(1.1);
+        -webkit-transform: scale(1.1);
     }
-
-    /*0%{
-        transform: translateX(0px) rotate(0deg);
-    }
-    10%{
-        transform: translateX(0.5px) rotate(0.2deg);
-    }
-    20%{
-        transform: translateX(-0.5px) rotate(-0.2deg);
-    }
-    30%{
-        transform: translateX(0.5px) rotate(0.3deg);
-    }
-    40%{
-        transform: translateX(-0.5px) rotate(-0.3deg);
-    }
-    50%{
-        transform: translateX(0.5px) rotate(0.2deg);
-    }
-    60%{
-        transform: translateX(-0.5px) rotate(-0.2deg);
-    }
-    70%{
-        transform: translateX(0.5px) rotate(0.3deg);
-    }
-    80%{
-        transform: translateX(-0.5px) rotate(-0.3deg);
-    }
-    90%{
-        transform: translateX(0.5px) rotate(0.2deg);
-    }
-    100%{
-        transform: translateX(-0.5px) rotate(-0.2deg);
-    }*/
 }
 @keyframes car-zoom-effect{
     0%{
@@ -528,42 +494,6 @@ body{
        -moz-transform: rotateZ(75deg);
         -ms-transform: rotateZ(75deg);
             transform: rotateZ(75deg);
-}
-
-.contact-hover-email{
-    cursor: pointer;
-    transition: all 0.3s;
-}
-.contact-hover-email:hover{
-    color: #4675CC;
-    background-color: #ffffff;
-}
-
-.contact-hover-qq{
-    cursor: pointer;
-    transition: all 0.3s;
-}
-.contact-hover-qq:hover{
-    color: #189BD6;
-    background-color: #ffffff;
-}
-
-.contact-hover-weibo{
-    cursor: pointer;
-    transition: all 0.3s;
-}
-.contact-hover-weibo:hover{
-    color: #E6162D;
-    background-color: #ffffff;
-}
-
-.contact-hover-weixin{
-    cursor: pointer;
-    transition: all 0.3s;
-}
-.contact-hover-weixin:hover{
-    color: #25A210;
-    background-color: #ffffff;
 }
 
 </style>
@@ -843,63 +773,6 @@ $(document).ready(function(){
     // 移动的车
     // $.Global.Animation.SpriteAnimation('.sprite-car', {imgSrc: '{{MEDIA_URL}}img/sprite-plane.png', height: 89});
 
-
-
-    // 文字效果切换
-    // var WORDS = [
-    //         ['inventors', 'use of the data', 'rebuilding the relationship', 'man to the vehicle'],
-    //         ['engineers', 'use tech power', 'improve traffic flow', 'thousands of users'],
-    //         ['supporters of the Open', 'share data', 'allow as many', 'create their own services'],
-    //         ['pleased to meet you', 'you are, contact us', 'we can chat', 'rain and shine'],
-    //         ['human beings', 'use transport', 'get to work', 'early'],
-    //         ['geeks', 'devour books of sci -fi', 'imagine the future', 'mobility']
-    //     ],
-    //     getWordWidth = function(word){
-    //         var temp = $('<span style="font-weight: bold; visibility: hidden;">'+word+'</span>').appendTo('.fade-move'),
-    //             width = temp.width();
-
-    //         temp.remove();
-    //         return width;
-    //     },
-    //     fadeText = function(words){
-    //         $.each(words, function(i){
-
-    //             $('.fade-text').eq(i)
-    //             .animate({
-    //                 'opacity': 0,
-    //                 'width': getWordWidth(words[i])
-    //             }, 500, 'easeOutExpo', function(){
-                    
-    //                 $(this).text(words[i]);
-    //                 $(this).animate({
-    //                     'opacity': 1
-    //                 }, 500, 'easeInExpo');
-
-    //             });
-
-    //         });
-    //     },
-    //     loopFadeText = function(){
-    //         $.each(WORDS, function(i){
-
-    //             window.setTimeout(function(){
-
-    //                 fadeText(WORDS[i]);
-
-    //             }, i*4000);
-                
-    //         });
-    //     };
-
-    // window.setInterval(function(){
-    //     loopFadeText();
-    // }, WORDS.length * 4000)
-    
-    // loopFadeText();
-
-
-
-
 });
 
 </script>
@@ -947,18 +820,6 @@ $(document).ready(function(){
     </div>
 
     <div class="section">
-        <!-- <div class="container text-center f25 co-ffffff fade-move">
-            <span class="">We are</span>
-            <span class="fade-text">pleased to meet you</span>
-            <span class="">who</span>
-            <span class="fade-text">you are, contact us</span>
-            <br>
-            <span class="">to</span>
-            <span class="fade-text">we can chat</span>
-            <span class="">for</span>
-            <span class="fade-text">rain and shine</span>
-        </div> -->
-
         <div class="container pr-50 pl-60 pt-50 co-ffffff text-center">
             <div class="pb-20 f25 text4 animated">
                 互联网＋实体店全方位服务，享受汽车大咖体验
@@ -1100,39 +961,8 @@ $(document).ready(function(){
     </div>
 
     <div class="section">
-        <div class="container-fluid pt-50 co-ffffff bgc-282828 pa" style="left: 0; bottom: 0; width: 100%;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 col-md-offset-4 text-center">
-                        <div class="col-md-3">
-                            <i class="contact-hover-email fa fa-envelope-o f28 bdc-ffffff border-2 bdr-circle pl-8 pr-8 pb-8 pt-8"></i>
-                        </div>
-                        <div class="col-md-3">
-                            <i class="contact-hover-qq fa fa-qq f28 bdc-ffffff border-2 bdr-circle pl-8 pr-8 pb-8 pt-8"></i>
-                        </div>
-                        <div class="col-md-3">
-                            <i class="contact-hover-weibo fa fa-weibo f28 bdc-ffffff border-2 bdr-circle pl-8 pr-8 pb-8 pt-8"></i>
-                        </div>
-                        <div class="col-md-3">
-                            <i class="contact-hover-weixin fa fa-weixin f28 bdc-ffffff border-2 bdr-circle pl-6 pr-6 pb-8 pt-8"></i>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-md-offset-3 text-center pr">
-                        <div class="pa bgc-666666" style="height: 1px; width: 120px; left: 80px; top: 42px;"></div>
-                        <div class="col-md-4 col-md-offset-4 pt-30 f18">4008 - 527 - 527</div>
-                        <div class="pa bgc-666666" style="height: 1px; width: 120px; left: 380px; top: 42px;"></div>
-                    </div>
-
-                    <div class="col-md-6 col-md-offset-3 text-center pt-45">
-                        <img class="w80" src="{{MEDIA_URL}}img/logo.png">
-                    </div>
-
-                    <div class="col-md-6 col-md-offset-3 pt-20 pb-20 pl-0 co-555555 f12 text-center">
-                        Copyright &copy; {% if YEAR == "2015" %}{{YEAR}}{% else %}2015 - {{YEAR}}{% endif %} cekaa.com. All Rights Reserved.
-                    </div>
-                </div>
-            </div>
+        <div style="position: absolute; left: 0; bottom: 0; width: 100%;">
+            {% include "pc/include/_footer.html" %}
         </div>
     </div>
 

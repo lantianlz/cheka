@@ -37,10 +37,14 @@ a:focus {outline: none;-moz-outline: none;}
 .f60{font-size: 60px;}
 .f70{font-size: 70px;}
 
+.w{width: 100%;}
 .w75{width: 75px;}
 .w80{width: 80px;}
 .w90{width: 90px;}
 .w240{width: 240px;}
+.w300{width: 300px;}
+
+.h{height: 100%;}
 
 
 .co-ffffff{color: #ffffff;}
@@ -58,6 +62,9 @@ a:focus {outline: none;-moz-outline: none;}
 .bgc-282828{background-color: #282828;}
 .bgc-666666{background-color: #666666;}
 .bgc-ffffff{background-color: #ffffff;}
+.bgc-4675CC{background-color: #4675CC;} /*蓝色*/
+.bgc-ececec{background-color: #ececec;} /*浅灰*/
+.bgc-F38349{background-color: #F38349;} /*橙色*/
 
 .pt-0{padding-top: 0;}
 .pt-3{padding-top: 3px;}
@@ -75,7 +82,11 @@ a:focus {outline: none;-moz-outline: none;}
 .pl-6{padding-left: 6px;}
 .pl-8{padding-left: 8px;}
 .pl-10{padding-left: 10px;}
+.pl-15{padding-left: 15px;}
+.pl-20{padding-left: 20px;}
 .pl-22{padding-left: 22px;}
+.pl-25{padding-left: 25px;}
+.pl-30{padding-left: 30px;}
 .pl-60{padding-left: 60px;}
 .pl-160{padding-left: 160px;}
 .pb-0{padding-bottom: 0;}
@@ -89,6 +100,8 @@ a:focus {outline: none;-moz-outline: none;}
 .pr-6{padding-right: 6px;}
 .pr-8{padding-right: 8px;}
 .pr-10{padding-right: 10px;}
+.pr-20{padding-right: 20px;}
+.pr-30{padding-right: 30px;}
 .pr-50{padding-right: 50px;}
 
 .mr-0{margin-right: 0;}

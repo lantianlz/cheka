@@ -61,6 +61,42 @@
         -ms-transform: scaleX(1);
             transform: scaleX(1);
 }
+
+.contact-hover-email{
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.contact-hover-email:hover{
+    color: #4675CC;
+    background-color: #ffffff;
+}
+
+.contact-hover-qq{
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.contact-hover-qq:hover{
+    color: #189BD6;
+    background-color: #ffffff;
+}
+
+.contact-hover-weibo{
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.contact-hover-weibo:hover{
+    color: #E6162D;
+    background-color: #ffffff;
+}
+
+.contact-hover-weixin{
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.contact-hover-weixin:hover{
+    color: #25A210;
+    background-color: #ffffff;
+}
 </style>
 {% block home_css %}{% endblock %}
 {% endblock %}
@@ -85,8 +121,8 @@
         </div>
         <nav class="collapse navbar-collapse" role="navigation">
             <ul class="nav navbar-nav navbar-right">
-                <li class="active">
-                    <a class="f16 pr" href="#">
+                <li {% if request.path == '/' %}class="active"{% endif %}>
+                    <a class="f16 pr" href="/">
                         首页
                         <span class="line-hover"></span>
                     </a>
@@ -109,8 +145,8 @@
                         <span class="line-hover"></span>
                     </a>
                 </li>
-                <li>
-                    <a class="f16" href="#">
+                <li {% if '/s/about' in request.path %}class="active"{% endif %}>
+                    <a class="f16" href="/s/about">
                         关于我们
                         <span class="line-hover"></span>
                     </a>
