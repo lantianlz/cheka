@@ -505,7 +505,7 @@ if (!String.format) {
         $('body').append(img);
         img.src = opts.imgSrc;
 
-    }
+    };
 
 })(jQuery);
 
