@@ -90,7 +90,7 @@ class Weixinpay(object):
         """ % params
 
         try:
-            resp = requests.post(url=url, data=xml, timeout=30)
+            resp = requests.post(url=url, data=xml, timeout=30, verify=False)
             resp.encoding = "utf-8"
             text = resp.text
             # text = """
