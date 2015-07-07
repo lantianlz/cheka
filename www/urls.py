@@ -20,7 +20,7 @@ urlpatterns = patterns('',
                        # url(r'^p/(?P<user_id>\w+)/user_answer$', 'www.account.views.user_answer'),
 
                        url(r'^$', 'www.misc.views.show_index'),
-                       url(r'^admin/', include('www.admin.urls')),
+                       # url(r'^admin/', include('www.admin.urls')),
                        url(r'^account/', include('www.account.urls')),
                        url(r'^weixin/', include('www.weixin.urls')),
 
